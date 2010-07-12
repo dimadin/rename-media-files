@@ -1,0 +1,48 @@
+# Translation of the WordPress plugin Rename Media Files 0.1 by Milan Dinić.
+# Copyright (C) 2010 Milan Dinić
+# This file is distributed under the same license as the Rename Media Files package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Rename Media Files 0.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/rename-media-files\n"
+"POT-Creation-Date: 2010-07-08 20:41+0000\n"
+"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: rename-media-files.php:47
+#, php-format
+msgid ""
+"Enter a new file name in the field above. (current filename is <strong>%1$s</"
+"strong>)"
+msgstr ""
+
+#: rename-media-files.php:50
+msgid "New file name:"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Rename Media Files"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://blog.milandinic.com/wordpress/plugins/rename-media-files/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Rename names of media files."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Milan Dinić"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://blog.milandinic.com/"
+msgstr ""

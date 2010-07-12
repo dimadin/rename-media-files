@@ -66,35 +66,44 @@ function rename_media_files_attachment_fields_to_save($post, $attachment) {
 	global $wpdb;
 
 	if ($attachment['rename_media_files_input']) {
-	
+		// get original filename
 		$orig_file = get_attached_file( $post['ID'] );
 		$orig_filename = basename($orig_file);
+		// get original path
 		$orig_dir_path = substr($orig_file, 0, (strrpos($orig_file, "/")));
 		
 		if (wp_attachment_is_image( $post['ID'] )) {
+			// get URLs to original pictures
 			$orig_image_thumbnail_url = wp_get_attachment_image_src( $post['ID'], 'thumbnail' );
 			$orig_image_medium_url = wp_get_attachment_image_src( $post['ID'], 'medium' );
 			$orig_image_large_url = wp_get_attachment_image_src( $post['ID'], 'large' );
 			$orig_image_full_url = wp_get_attachment_image_src( $post['ID'], 'full' );
 			} else {
+				// get URL to original file that is not image
 				$orig_attachment_url = wp_get_attachment_url( $post['ID'] );
 		}
 		
+		// make new filename and path
 		$new_filename= wp_unique_filename( $orig_dir_path, $attachment['rename_media_files_input'] );
 		$new_file = $orig_dir_path . "/" . $new_filename;
 		
+		// make new file with desired name
 		copy( $orig_file, $new_file );
 		
+		// update file location in database
 		update_attached_file( $post['ID'], $new_file );
 
+		// update guid for attachment
 		$post_for_guid = get_post( $post['ID'] );
 		$guid = str_replace($orig_filename, $new_filename, $post_for_guid->guid);
 
 		wp_update_post( array('ID' => $post['ID'],
 							  'guid' => $guid) );
-							  
+							
+		// update attachment's metadata
 		wp_update_attachment_metadata( $post['ID'], wp_generate_attachment_metadata( $post['ID'], $new_file) );
 		
+		// get URLs to new pictures and update posts with old URLs
 		if (wp_attachment_is_image( $post['ID'] )) {
 			$new_image_thumbnail_url = wp_get_attachment_image_src( $post['ID'], 'thumbnail' );
 			$new_image_medium_url = wp_get_attachment_image_src( $post['ID'], 'medium' );
@@ -107,6 +116,7 @@ function rename_media_files_attachment_fields_to_save($post, $attachment) {
 			$wpdb->query("UPDATE $wpdb->posts SET post_content = REPLACE(post_content, '$orig_image_large_url', '$new_image_large_url');");
 			$wpdb->query("UPDATE $wpdb->posts SET post_content = REPLACE(post_content, '$orig_image_full_url', '$new_image_full_url');");
 			} else {
+				// get URL to original file that is not image and update posts with old URL
 				$new_attachment_url = wp_get_attachment_url( $post['ID'] );
 				
 				$wpdb->query("UPDATE $wpdb->posts SET post_content = REPLACE(post_content, '$orig_attachment_url', '$new_attachment_url');");
@@ -116,14 +126,4 @@ function rename_media_files_attachment_fields_to_save($post, $attachment) {
 
     return $post;
 }
-/**
- * Could be changed:
- * http://wordpress.org/extend/plugins/hungred-post-thumbnail/
- * http://wordpress.org/extend/plugins/filebrowser/
- * http://wordpress.org/extend/plugins/wp-filebase/
- * http://wordpress.org/extend/plugins/image-formatr/
- * http://wordpress.org/extend/plugins/seo-image-galleries/
- * http://wordpress.org/extend/plugins/wp-filemanager/
- * http://wordpress.org/extend/plugins/thumbnails-manager/
- */
 
