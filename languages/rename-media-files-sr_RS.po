@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Serbian translation for Rename Media Files 0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/rename-media-files\n"
-"POT-Creation-Date: 2010-07-08 20:41+0000\n"
-"PO-Revision-Date: 2010-07-12 23:13+0100\n"
+"POT-Creation-Date: 2012-03-14 19:33:17+00:00\n"
+"PO-Revision-Date: 2012-03-14 20:33+0100\n"
 "Last-Translator: Milan Dinić <milan@srpski.biz>\n"
 "Language-Team: srpski.biz <milan@srpski.biz>\n"
 "MIME-Version: 1.0\n"
@@ -19,14 +19,17 @@ msgstr ""
 "X-Poedit-Country: SERBIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: rename-media-files.php:47
-#, php-format
-msgid "Enter a new file name in the field above. (current filename is <strong>%1$s</strong>)"
-msgstr "Унесите ново име датотеке у пољу изнад. (тренутно име датотеке је <strong>%1$s</strong>)"
+#: rename-media-files.php:78
+msgid "Donate"
+msgstr "Донација"
 
-#: rename-media-files.php:50
+#: rename-media-files.php:108
 msgid "New file name:"
 msgstr "Ново име датотеке:"
+
+#: rename-media-files.php:110
+msgid "Enter a new file name in the field above. (current filename is <strong>%1$s</strong>)"
+msgstr "Унесите ново име датотеке у пољу изнад. (тренутно име датотеке је <strong>%1$s</strong>)"
 
 #. Plugin Name of the plugin/theme
 msgid "Rename Media Files"
