@@ -125,7 +125,7 @@ function rename_media_files_fields_to_edit( $form_fields, $post ) {
 function rename_media_files_attachment_fields_to_save( $post, $attachment ) {
 
 	/* Only proceed if new filename is submitted */
-	if ( $attachment['rename_media_files_input'] ) {
+	if ( isset( $attachment['rename_media_files_input'] ) && $attachment['rename_media_files_input'] ) {
 		/* Get original filename */
 		$orig_file = get_attached_file( $post['ID'] );
 		$orig_filename = basename( $orig_file );
