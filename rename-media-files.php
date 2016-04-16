@@ -181,13 +181,13 @@ function rename_media_files_attachment_fields_to_save( $post, $attachment ) {
 				$new_image_data = wp_get_attachment_image_src( $post['ID'], $image_size );
 				$new_image_url = $new_image_data[0];
 
-				$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_content = REPLACE(post_content, '$orig_image_url', '$new_image_url');" ) );
+				$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_content = REPLACE(post_content, %s, %s);", $orig_image_url, $new_image_url ) );
 			}
 		/* Otherwise, get URL to new file and update posts with old URL */
 		} else {
 			$new_attachment_url = wp_get_attachment_url( $post['ID'] );
 
-			$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_content = REPLACE(post_content, '$orig_attachment_url', '$new_attachment_url');" ) );
+			$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_content = REPLACE(post_content, %s, %s);" ), $orig_attachment_url, $new_attachment_url );
 		}
 	}
 
