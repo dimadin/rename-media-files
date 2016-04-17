@@ -76,7 +76,9 @@ function rename_media_files_filter_plugin_actions( $links, $file ) {
 
 	if ( $file == $this_plugin ) {
 		$donate_link = '<a href="http://blog.milandinic.com/donate/">' . __( 'Donate', 'rename-media-files' ) . '</a>';
-		$links = array_merge( array( $donate_link ), $links ); // Before other links
+		$wpdev_link  = '<a href="http://blog.milandinic.com/wordpress/custom-development/">' . __( 'WordPress Developer', 'rename-media-files' ) . '</a>';
+
+		$links = array_merge( array( $donate_link, $wpdev_link ), $links ); // Before other links
 	}
 
 	return $links;
