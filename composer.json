@@ -1,0 +1,22 @@
+{
+	"name": "dimadin/rename-media-files",
+	"description": "Rename names of media files.",
+	"keywords": ["media", "rename"],
+	"type": "wordpress-plugin",
+	"homepage": "http://blog.milandinic.com/wordpress/plugins/rename-media-files/",
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "Milan Dinić",
+			"email": "milan@srpski.biz",
+			"homepage": "http://blog.milandinic.com/"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/dimadin/rename-media-files/issues",
+		"source": "https://github.com/dimadin/rename-media-files"
+	},
+	"require": {
+		"composer/installers": "~1.0"
+	}
+}
