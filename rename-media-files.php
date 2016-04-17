@@ -5,7 +5,7 @@
  * Description: Rename names of media files.
  * Author:      Milan Dinić
  * Author URI:  http://blog.milandinic.com/
- * Version:     1.0
+ * Version:     1.0.1
  * License:     GPL
  * Text Domain: rename-media-files
  * Domain Path: /languages/
